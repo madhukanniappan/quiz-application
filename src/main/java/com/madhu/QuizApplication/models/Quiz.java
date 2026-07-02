@@ -14,7 +14,7 @@ public class Quiz {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotBlank
+    @NotBlank(message = "Quiz title cannot be empty")
     private String title;
 
     @ManyToMany

@@ -24,6 +24,7 @@ public class QuizService {
 
     public Quiz createQuiz(String category, int numQ, String title) {
         List<Question> questions = questionDao.findRandomQuestionsByCategory(category, numQ);
+        System.out.println("Questions found = " + questions.size());
 
         Quiz quiz = new Quiz();
         quiz.setQuestions(questions);
@@ -32,7 +33,7 @@ public class QuizService {
         return quizDao.save(quiz);
     }
 
-    public List<QuestionWrapper> getQuizQuestions(int id) {
+    public List<QuestionWrapper> getQuizQuestions(Integer id) {
 
         Optional<Quiz> quiz = quizDao.findById(id);
 
